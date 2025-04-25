@@ -12,8 +12,14 @@ class minecraftCPULoader:
             "or":"0101",
             "add":"0110",
             "sub":"0111",
-            "jmp":"1001",
-            "li":"1011",
+            "jmp":"1000",
+            "bg":"1001",
+            "beq":"1010",
+            "bl":"1011",
+            "bne":"1100",
+            "li":"1101",
+            "sl":"1110",
+            "sr":"1110",
             "dspl":"1111"
         }
         self.schemeticCreator = mcschematic.MCSchematic()
@@ -27,8 +33,10 @@ class minecraftCPULoader:
                 temp = line[1]
                 line[1] = line[3]
                 line[3] = temp
-        elif instruction == "li":
+        elif instruction == "li" or instruction == "sl":
             line.append(0)
+        elif instruction == "sr":
+            line.append(1)
         for i in range(1, 4):
             line[i] = "{0:04b}".format(int(line[i]))
         line = self.instructionSet[instruction][::-1] + line[1][::-1] + line[2][::-1] + line[3][::-1]
