@@ -97,3 +97,9 @@ ADD 4 4 2
 SUB 1 1 3
 BG 3 1 0
 DSPL 4
+```
+---
+
+## 🪪 License
+
+This project is licensed under the MIT License. Read more [here](LICENSE).
